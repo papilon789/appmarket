@@ -1,0 +1,8 @@
+{
+  "name": "appmarket",
+  "app_id": "896f04e9",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
