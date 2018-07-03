@@ -10,6 +10,7 @@ import { InfomemberPage } from '../pages/infomember/infomember';
 import { RegistorPage } from '../pages/registor/registor';
 import { Register2Page } from '../pages/register2/register2';
 import { PostproductPage } from '../pages/postproduct/postproduct';
+import { CatalogPage } from '../pages/catalog/catalog';
 
 @Component({
   templateUrl: 'app.html'
@@ -32,7 +33,8 @@ export class MyApp {
       { title: 'info', component: InfomemberPage },
       { title: 'register', component: RegistorPage },
       { title: 'register2', component: Register2Page },
-      { title: 'PostproductPage', component: PostproductPage }
+      { title: 'PostproductPage', component: PostproductPage },
+      { title: 'Catalog', component: CatalogPage }
     ];
 
   }

@@ -17,6 +17,11 @@ import { FormsModule } from '@angular/forms';
 import { Register2PageModule } from '../pages/register2/register2.module';
 import { PostproductPageModule } from '../pages/postproduct/postproduct.module';
 import { ProductProvider } from '../providers/product/product';
+import { CatalogPageModule } from '../pages/catalog/catalog.module';
+import { CatalogTradePageModule } from '../pages/catalog-trade/catalog-trade.module';
+import { CatalogTechnicianPageModule } from '../pages/catalog-technician/catalog-technician.module';
+import { CatalogGardenPageModule } from '../pages/catalog-garden/catalog-garden.module';
+import { CatalogHousemaidPageModule } from '../pages/catalog-housemaid/catalog-housemaid.module';
 
 @NgModule({
   declarations: [
@@ -28,19 +33,17 @@ import { ProductProvider } from '../providers/product/product';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    IonicModule.forRoot(MyApp,
-      {
-        monthNames: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน','ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
-        monthShortNames: ['ม.ค.', 'ก.พ.', 'มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
-        dayNames: ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์', 'อาทิตย์'],
-        dayShortNames: ['จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.', 'อา.']
-    }
-    ),
+    IonicModule.forRoot(MyApp),
     LoginPageModule,
     InfomemberPageModule,
     RegistorPageModule,
     Register2PageModule,
-    PostproductPageModule
+    PostproductPageModule,
+    CatalogPageModule,
+    CatalogTradePageModule,
+    CatalogTechnicianPageModule,
+    CatalogGardenPageModule,
+    CatalogHousemaidPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
