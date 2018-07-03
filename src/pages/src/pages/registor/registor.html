@@ -1,0 +1,70 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>registor</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form novalidate #signupform="ngForm">
+    <ion-list>
+
+        <ion-item>
+          <ion-label floating>ชื่อ</ion-label>
+          <ion-input ngModel name="name" type="text" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>นามสกุล</ion-label>
+          <ion-input ngModel name="surname" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>ชื่อเล่น</ion-label>
+          <ion-input ngModel name="nickname" type="text"></ion-input>
+          </ion-item>
+
+        <ion-item>
+          <ion-label floating>เบอร์โทรศัพท์</ion-label>
+          <ion-input ngModel name="tel" type="tel"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>E-mail</ion-label>
+          <ion-input ngModel name="email" type="email" required pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>ID Line</ion-label>
+          <ion-input ngModel name="line" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>ความถนัด: </ion-label>
+          <ion-select ngModel name="aptitude">
+            <ion-option value="งานช่าง">งานช่าง</ion-option>
+            <ion-option value="งานสวน">งานสวน</ion-option>
+            <ion-option value="งานบ้าน">งานบ้าน</ion-option>
+            <ion-option value="ขายสินค้า">ขายสินค้า</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>รหัสผ่าน</ion-label>
+          <ion-input ngModel name="password" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <button ion-button block color="primary" (click)="registerUser(signupform.value)" >
+            SIGNUP
+            </button>
+          </ion-item>
+
+      </ion-list>
+
+  </form>
+</ion-content>
