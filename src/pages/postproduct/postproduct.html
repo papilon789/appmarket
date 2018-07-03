@@ -1,6 +1,5 @@
 <!--
   Generated template for the PostproductPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -49,7 +48,7 @@
 
         <ion-item>
           <ion-label floating>ราคา: </ion-label>
-          <ion-input type="text" formControlName="price" >บาท</ion-input>
+          <ion-input type="tel" formControlName="price" >บาท</ion-input>
         </ion-item>
         <ion-item no-lines *ngIf="(myForm.get('price').hasError('pattern') ||myForm.get('price').hasError('required') ) && myForm.get('price').touched">
           <div class="error" *ngIf="myForm.get('price').hasError('required') && myForm.get('price').touched">
@@ -86,10 +85,14 @@
           </div>
         </ion-item>
 
+        <ion-item>
+          <ion-label floating>ID Line: </ion-label>
+          <ion-input type="text" formControlName="line" ></ion-input>
+        </ion-item>
 
         <ion-item>
           <ion-label floating>Email: </ion-label>
-          <ion-input type="text" formControlName="email" ></ion-input>
+          <ion-input type="email" formControlName="email" ></ion-input>
         </ion-item>
         <ion-item no-lines *ngIf="( myForm.get('email').hasError('minlength') || myForm.get('email').hasError('pattern') ||myForm.get('email').hasError('required') ) && myForm.get('email').touched">
           <div class="error" *ngIf="myForm.get('email').hasError('required') && myForm.get('email').touched">
@@ -100,15 +103,14 @@
           </div>
         </ion-item>
 
+        <!-- <ion-item>
+          <ion-label floating>เวลาปฎิบัติงาน</ion-label>  
+          <ion-datetime formControlName="datestartjob" max="2565" displayFormat="DD MMM YYYY" doneText="ตกลง" cancelText="ยกเลิก"></ion-datetime>
+        </ion-item> -->
 
         <ion-item>
-          <ion-label floating>ID Line: </ion-label>
-          <ion-input type="text" formControlName="line" ></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating >วันที่ลงประกาศ: {{currentDate}}</ion-label>
-          <ion-input type="text" formControlName="dateregist" value="{{date}}" hidden></ion-input>
+          <ion-label >วันที่ลงประกาศ: {{currentDate}}</ion-label>
+          <ion-input type="text" formControlName="dateregist" readonly></ion-input>
         </ion-item>
 
         <ion-item>

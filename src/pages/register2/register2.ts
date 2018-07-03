@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { MemberProvider } from '../../providers/member/member';
@@ -62,9 +62,9 @@ export class Register2Page {
   ngOnInit() {
     let EMAILPATTERN = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
     this.signupform = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Zก-๙ ]*'), Validators.minLength(4), Validators.maxLength(30)]),
-      surname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Zก-๙ ]*'), Validators.minLength(4), Validators.maxLength(10)]),
-      nickname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Zก-๙ ]*'), Validators.minLength(1), Validators.maxLength(10)]),
+      name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30)]),
+      surname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(10)]),
+      nickname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(1), Validators.maxLength(10)]),
       tel: new FormControl('', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10), Validators.maxLength(10)]),
       email: new FormControl('', Validators.pattern(EMAILPATTERN)),
       line: new FormControl(''),

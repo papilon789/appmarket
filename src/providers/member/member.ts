@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class MemberProvider {
 
-  registerUrl = 'http://110.77.150.11/api/insert_register.php';
+  registerUrl = 'http://192.168.13.154/api/insert_register.php';
 
   constructor(public http: HttpClient) {
     console.log('Hello MemberProvider Provider');

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ProductProvider {
 
-  postproductUrl = "http://110.77.150.11/api/insert_product.php";
+  postproductUrl = "http://192.168.13.154/api/insert_product.php";
 
   constructor(public http: HttpClient) {
     console.log('Hello ProductProvider Provider');

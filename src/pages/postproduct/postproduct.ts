@@ -18,8 +18,8 @@ import { ProductProvider } from '../../providers/product/product';
 export class PostproductPage {
 
   myForm: FormGroup;
-  date: any = new Date().toJSON();
-  currentDate: string = new Date().toLocaleDateString();
+  date: any = new Date().toDateString();
+  currentDate: any = new Date().toLocaleDateString();
 
   constructor(public productProvider: ProductProvider, 
               public alerCtrl: AlertController,
@@ -76,7 +76,7 @@ export class PostproductPage {
       email: new FormControl('', Validators.pattern(EMAILPATTERN)),
       line: new FormControl(''),
       dateregist: new FormControl('')
-      
+      // datestartjob: new FormControl('')
     });
   }
 

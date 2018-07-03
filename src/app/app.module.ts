@@ -28,7 +28,14 @@ import { ProductProvider } from '../providers/product/product';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,
+      {
+        monthNames: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน','ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
+        monthShortNames: ['ม.ค.', 'ก.พ.', 'มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+        dayNames: ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์', 'อาทิตย์'],
+        dayShortNames: ['จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.', 'อา.']
+    }
+    ),
     LoginPageModule,
     InfomemberPageModule,
     RegistorPageModule,
