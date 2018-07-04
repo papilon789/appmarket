@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { ProductProvider } from '../../providers/product/product';
 
 /**
  * Generated class for the CatalogTechnicianPage page.
@@ -15,11 +16,36 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CatalogTechnicianPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  category: string;
+  product: any[];
+
+  constructor(public productProvider: ProductProvider,
+    public loadingCtrl: LoadingController, 
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CatalogTechnicianPage');
+    console.log(this.category);
+    const loader = this.loadingCtrl.create({
+      content: "กำลังโหลดข้อมูล...",
+
+    });
+
+    this.category = this.navParams.get('category');
+    this.productProvider.getcatalogtype(this.category).subscribe(
+      (p) => this.product = p
+      
+    ),
+    (error) => {
+      loader.dismiss();
+      console.log(error);
+    },
+    () => {
+      loader.dismiss();
+    }
+    
+  }
   }
 
-}
+

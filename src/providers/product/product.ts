@@ -10,10 +10,10 @@ export class ProductProvider {
 
   postproductUrl = 'http://110.77.150.11/api/insert_product.php';
 
-  catalogUrl = 'http://192.168.13.154/api/get_product.php';
-  courseUrl ='http://192.168.13.154/api/get_product.php';
+  catalogUrl = 'http://110.77.150.11/api/get_product.php';
+  courseUrl ='http://110.77.150.11/api/get_product.php';
 
-  catalogtypeUrl = 'http://192.168.13.154/api/get_product_detail.php';
+  catalogtypeUrl = 'http://110.77.150.11/api/get_product_detail.php';
 
   constructor(public http: HttpClient) {
     console.log('Hello ProductProvider Provider');
@@ -35,7 +35,7 @@ export class ProductProvider {
 
   getcatalogtype(category: string): Observable<any[]>{
     const myParam = {
-      'category': category
+      'category': category.toString()
     }
     return this.http.get<any[]>(this.catalogtypeUrl, {params: myParam});
   }

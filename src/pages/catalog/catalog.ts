@@ -27,7 +27,7 @@ export class CatalogPage {
   }
 
   ionViewDidLoad() {
-
+    
     const loader = this.loadingCtrl.create({
       content: "กำลังโหลดข้อมูล...",
 
@@ -49,28 +49,43 @@ export class CatalogPage {
   }
 
   goTradepage(c){
-    console.log(c);
-    // let trade = "ขายสินค้า"
-    // this.navCtrl.push(CatalogTradePage, {
-    //   category: trade
-    // });
+    let trade = "4"
+    this.navCtrl.push(CatalogTradePage, {
+      category: trade
+    });
 
   }
 
   goTechnicianpage(){
-    this.navCtrl.push(CatalogTechnicianPage);
+    let trade = "1"
+    this.navCtrl.push(CatalogTechnicianPage, {
+      category: trade
+    });
+    
   }
 
   goHousemaidpage(){
-    this.navCtrl.push(CatalogHousemaidPage);
+    let trade = "3"
+    this.navCtrl.push(CatalogHousemaidPage, {
+      category: trade
+    });
+  
   }
 
   goGardenpage(){
-    this.navCtrl.push(CatalogGardenPage);
+    let trade = "2"
+    this.navCtrl.push(CatalogGardenPage, {
+      category: trade
+    });
+  
   }
 
   goPatientcare(){
-    this.navCtrl.push(CatalogPatientcarePage);
+    let trade = "5"
+    this.navCtrl.push(CatalogPatientcarePage, {
+      category: trade
+    });
+
   }
 
 }
