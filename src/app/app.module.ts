@@ -22,6 +22,7 @@ import { CatalogTradePageModule } from '../pages/catalog-trade/catalog-trade.mod
 import { CatalogTechnicianPageModule } from '../pages/catalog-technician/catalog-technician.module';
 import { CatalogGardenPageModule } from '../pages/catalog-garden/catalog-garden.module';
 import { CatalogHousemaidPageModule } from '../pages/catalog-housemaid/catalog-housemaid.module';
+import { CatalogPatientcarePageModule } from '../pages/catalog-patientcare/catalog-patientcare.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,14 @@ import { CatalogHousemaidPageModule } from '../pages/catalog-housemaid/catalog-h
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,
+      {
+        monthNames: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน','ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
+        monthShortNames: ['ม.ค.', 'ก.พ.', 'มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+        dayNames: ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์', 'อาทิตย์'],
+        dayShortNames: ['จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.', 'อา.']
+    }
+    ),
     LoginPageModule,
     InfomemberPageModule,
     RegistorPageModule,
@@ -43,7 +51,8 @@ import { CatalogHousemaidPageModule } from '../pages/catalog-housemaid/catalog-h
     CatalogTradePageModule,
     CatalogTechnicianPageModule,
     CatalogGardenPageModule,
-    CatalogHousemaidPageModule
+    CatalogHousemaidPageModule,
+    CatalogPatientcarePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

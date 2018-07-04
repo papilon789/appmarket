@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { CatalogTradePage } from '../catalog-trade/catalog-trade';
 import { CatalogTechnicianPage } from '../catalog-technician/catalog-technician';
 import { CatalogHousemaidPage } from '../catalog-housemaid/catalog-housemaid';
 import { CatalogGardenPage } from '../catalog-garden/catalog-garden';
+import { CatalogPatientcarePage } from '../catalog-patientcare/catalog-patientcare';
+import { ProductProvider } from '../../providers/product/product';
 
-/**
- * Generated class for the CatalogPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -19,15 +16,45 @@ import { CatalogGardenPage } from '../catalog-garden/catalog-garden';
 })
 export class CatalogPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  categorys: any[];
+  courses: any[];
+
+  constructor(public productProvider: ProductProvider,
+    public loadingCtrl: LoadingController,  
+    public navCtrl: NavController, 
+    public navParams: NavParams
+  ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CatalogPage');
+
+    const loader = this.loadingCtrl.create({
+      content: "กำลังโหลดข้อมูล...",
+
+    });
+    loader.present();
+
+    this.productProvider.getcatalog().subscribe(
+      (c)=> this.courses = c
+      ,
+      (error) => {
+        loader.dismiss();
+        console.log(error);
+      },
+      () => {
+        loader.dismiss();
+      }
+    );
+
   }
 
-  goTradepage(){
-    this.navCtrl.push(CatalogTradePage);
+  goTradepage(c){
+    console.log(c);
+    // let trade = "ขายสินค้า"
+    // this.navCtrl.push(CatalogTradePage, {
+    //   category: trade
+    // });
+
   }
 
   goTechnicianpage(){
@@ -40,6 +67,10 @@ export class CatalogPage {
 
   goGardenpage(){
     this.navCtrl.push(CatalogGardenPage);
+  }
+
+  goPatientcare(){
+    this.navCtrl.push(CatalogPatientcarePage);
   }
 
 }
