@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { ProductProvider } from '../../providers/product/product';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the PostproductPage page.
@@ -22,7 +23,7 @@ export class PostproductPage {
   currentDate: any = new Date().toLocaleDateString();
 
   constructor(public productProvider: ProductProvider, 
-              public alerCtrl: AlertController,
+              public alertCtrl: AlertController,
               public modalCtrl: ModalController, 
               public navCtrl: NavController, 
               public navParams: NavParams) {
@@ -35,24 +36,26 @@ export class PostproductPage {
   }
 
   postproduct(myForm){
-    console.log(myForm)
-
+    console.log(myForm);
     this.productProvider.postproduct(myForm).subscribe(
+      
       (feedback) => {
-        if(feedback.statusText === 'ok'){
+        console.log(feedback);
+        if(feedback.status === 'ok'){
 
-          const alert = this.alerCtrl.create({
-            title: 'ผลการลงประกาศ',
-            subTitle: feedback.message,
+          const alert = this.alertCtrl.create({
+            title: 'ผลการลงทะเบียน',
+            subTitle: 'สำเร็จ',
             buttons: ['OK']
           });
           alert.present();
+          this.navCtrl.setRoot(HomePage);
 
         }else{
 
-          const alert = this.alerCtrl.create({
-            title: 'ผลการลงประกาศ',
-            subTitle: feedback.message,
+          const alert = this.alertCtrl.create({
+            title: 'ผลการลงทะเบียน',
+            subTitle: 'ไม่สำเร็จ',
             buttons: ['OK']
           });
           alert.present();
@@ -60,23 +63,26 @@ export class PostproductPage {
         }
       }
     );
-
   }
 
 
   ngOnInit() {
     let EMAILPATTERN = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-    // let date = this.date;
+    
     this.myForm = new FormGroup({
+      idposjob: new FormControl(''),
+      idgetjob: new FormControl(''),
+      datestartjob: new FormControl(''),
+      dateclosejob: new FormControl(''),
       productname: new FormControl(''),
       category: new FormControl(''),
       price: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
       detail: new FormControl(''),
       tel: new FormControl('', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10), Validators.maxLength(10)]),
       email: new FormControl('', Validators.pattern(EMAILPATTERN)),
-      line: new FormControl(''),
+      line: new FormControl('', Validators.pattern('[a-zA-Z0-9_-]*')),
       dateregist: new FormControl('')
-      // datestartjob: new FormControl('')
+      
     });
   }
 

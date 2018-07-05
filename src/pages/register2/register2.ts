@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { MemberProvider } from '../../providers/member/member';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the Register2Page page.
@@ -20,7 +21,7 @@ export class Register2Page {
   signupform: FormGroup;
 
   constructor(public navCtrl: NavController,
-    public alerCtrl: AlertController,
+    public alertCtrl: AlertController,
     public modalCtrl: ModalController,
     public memberProvider: MemberProvider,
     public navParams: NavParams) {
@@ -38,18 +39,19 @@ export class Register2Page {
       (feedback) => {
         if(feedback.status === 'ok'){
 
-          const alert = this.alerCtrl.create({
+          const alert = this.alertCtrl.create({
             title: 'ผลการลงทะเบียน',
-            subTitle: feedback.message,
+            subTitle: 'สำเร็จ',
             buttons: ['OK']
           });
           alert.present();
+          this.navCtrl.setRoot(HomePage);
 
         }else{
 
-          const alert = this.alerCtrl.create({
+          const alert = this.alertCtrl.create({
             title: 'ผลการลงทะเบียน',
-            subTitle: feedback.message,
+            subTitle: 'ไม่สำเร็จ',
             buttons: ['OK']
           });
           alert.present();
@@ -67,7 +69,7 @@ export class Register2Page {
       nickname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Zก-๙ ]*'), Validators.minLength(1), Validators.maxLength(10)]),
       tel: new FormControl('', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10), Validators.maxLength(10)]),
       email: new FormControl('', Validators.pattern(EMAILPATTERN)),
-      line: new FormControl(''),
+      line: new FormControl('', Validators.pattern('[a-zA-Z0-9_-]*')),
       aptitude: new FormControl(''),
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
     });

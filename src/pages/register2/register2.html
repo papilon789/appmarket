@@ -2,6 +2,9 @@
 <ion-header>
 
   <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
     <ion-title>registor</ion-title>
   </ion-navbar>
 
@@ -107,10 +110,10 @@
         <ion-label floating>ID Line: </ion-label>
         <ion-input type="text" formControlName="line"></ion-input> <!--  [class.error1]="!signupform.controls.line.valid && signupform.controls.line.dirty"  -->
       </ion-item>
-      <ion-item no-lines *ngIf="(signupform.get('line').hasError('required') ) && signupform.get('line').touched">
-        <div class="error" *ngIf="signupform.get('line').hasError('required') && signupform.get('line').touched">
-          กรุณาใส่เบอร์โทรศัพท์
-        </div>
+      <ion-item no-lines *ngIf="(signupform.get('line').hasError('pattern') ) && signupform.get('line').touched">
+          <div class="error" *ngIf="signupform.get('line').hasError('pattern') && signupform.get('line').touched">
+              English!!!!!
+          </div>
       </ion-item>
 
       <ion-item>

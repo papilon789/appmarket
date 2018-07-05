@@ -1,18 +1,23 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
-import { DetailProductPage } from '../detail-product/detail-product';
 
+/**
+ * Generated class for the DetailProductPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
-  selector: 'page-catalog-patientcare',
-  templateUrl: 'catalog-patientcare.html',
+  selector: 'page-detail-product',
+  templateUrl: 'detail-product.html',
 })
-export class CatalogPatientcarePage {
+export class DetailProductPage {
 
-  category: string;
-  product: any[];
+  id: number;
+  detail: any[];
 
   constructor(public productProvider: ProductProvider,
     public loadingCtrl: LoadingController, 
@@ -21,15 +26,15 @@ export class CatalogPatientcarePage {
   }
 
   ionViewDidLoad() {
-    console.log(this.category);
+
     const loader = this.loadingCtrl.create({
       content: "กำลังโหลดข้อมูล...",
 
     });
 
-    this.category = this.navParams.get('category');
-    this.productProvider.getcatalogtype(this.category).subscribe(
-      (p) => this.product = p
+    this.id = this.navParams.get('id');
+    this.productProvider.getdetailproduct(this.id).subscribe(
+      (d) => this.detail = d
       
     ),
     (error) => {
@@ -39,14 +44,6 @@ export class CatalogPatientcarePage {
     () => {
       loader.dismiss();
     }
-  }
-
-  goDetailProduct(p){
-    console.log(p);
-    this.navCtrl.push(DetailProductPage, {
-      id: p.id
-    });
-
   }
 
 }

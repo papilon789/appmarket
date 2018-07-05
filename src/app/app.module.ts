@@ -23,6 +23,7 @@ import { CatalogTechnicianPageModule } from '../pages/catalog-technician/catalog
 import { CatalogGardenPageModule } from '../pages/catalog-garden/catalog-garden.module';
 import { CatalogHousemaidPageModule } from '../pages/catalog-housemaid/catalog-housemaid.module';
 import { CatalogPatientcarePageModule } from '../pages/catalog-patientcare/catalog-patientcare.module';
+import { DetailProductPageModule } from '../pages/detail-product/detail-product.module';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { CatalogPatientcarePageModule } from '../pages/catalog-patientcare/catal
     CatalogTechnicianPageModule,
     CatalogGardenPageModule,
     CatalogHousemaidPageModule,
-    CatalogPatientcarePageModule
+    CatalogPatientcarePageModule,
+    DetailProductPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

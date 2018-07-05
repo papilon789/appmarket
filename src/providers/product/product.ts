@@ -8,12 +8,13 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 @Injectable()
 export class ProductProvider {
 
-  postproductUrl = 'http://110.77.150.11/api/insert_product.php';
+  postproductUrl = 'http://192.168.13.154/api/insert_product.php';
 
-  catalogUrl = 'http://110.77.150.11/api/get_product.php';
-  courseUrl ='http://110.77.150.11/api/get_product.php';
+  catalogUrl = 'http://192.168.13.154/api/get_product.php';
 
-  catalogtypeUrl = 'http://110.77.150.11/api/get_product_detail.php';
+  catalogtypeUrl = 'http://192.168.13.154/api/get_product_detail.php';
+
+  detailproductUrl = 'http://192.168.13.154/api/get_product_detail_2.php';
 
   constructor(public http: HttpClient) {
     console.log('Hello ProductProvider Provider');
@@ -29,15 +30,20 @@ export class ProductProvider {
   getcatalog(): Observable<any[]>{
     return this.http.get<any[]>(this.catalogUrl);
   }
-  getCourse(): Observable<any[]>{
-    return this.http.get<any[]>(this.courseUrl);
-  }
+
 
   getcatalogtype(category: string): Observable<any[]>{
     const myParam = {
       'category': category.toString()
     }
     return this.http.get<any[]>(this.catalogtypeUrl, {params: myParam});
+  }
+
+  getdetailproduct(id: number): Observable<any[]>{
+    const myParam ={
+      'id': id.toString()
+    }
+    return this.http.get<any[]>(this.detailproductUrl, {params: myParam});
   }
 
 
