@@ -4,12 +4,6 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { ProductProvider } from '../../providers/product/product';
 import { HomePage } from '../home/home';
 
-/**
- * Generated class for the PostproductPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

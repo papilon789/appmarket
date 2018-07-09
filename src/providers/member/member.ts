@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable';
 export class MemberProvider {
 
   registerUrl = 'http://192.168.13.154/api/insert_register.php';
+  loginUrl = '';
 
   constructor(public http: HttpClient) {
     console.log('Hello MemberProvider Provider');
@@ -21,7 +22,10 @@ export class MemberProvider {
   }
 
   login(tel: string, password: string){
-
+    return this.http.post(this.loginUrl, {
+      tel: tel,
+      password: password
+    });
   }
 
 
