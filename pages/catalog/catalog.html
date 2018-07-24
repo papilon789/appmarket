@@ -1,0 +1,56 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>catalog</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="card-background-page" >
+
+  <ion-card (click)="goTradepage(c)">
+    <img src="assets/icon/Cart-icon.png"/>
+    <div class="card-title">ซื้อ-ขาย</div>
+    <div class="card-subtitle">41 Listings</div>
+  </ion-card>
+
+  <ion-card (click)="goTechnicianpage()">
+    <img src="assets/icon/our-tools.png"/>
+    <div class="card-title">งานช่าง</div>
+    <div class="card-subtitle">64 Listings</div>
+  </ion-card>
+
+  <ion-card (click)="goHousemaidpage()">
+    <img src="assets/icon/Nursing-Home-Cheras-Service-Icon-5.png"/>
+    <div class="card-title">งานบ้าน</div>
+    <div class="card-subtitle">72 Listings</div>
+  </ion-card>
+
+  <ion-card (click)="goGardenpage()">
+    <img src="assets/icon/images (1).png"/>
+    <div class="card-title">งานสวน</div>
+    <div class="card-subtitle">28 Listings</div>
+  </ion-card>
+
+  <ion-card (click)="goPatientcare()">
+    <img src="assets/icon/menu-3.png"/>
+    <div class="card-title">เฝ้าไข้</div>
+    <div class="card-subtitle">28 Listings</div>
+  </ion-card>
+
+  <!-- <ion-list>
+      <button ion-item *ngFor="let c of courses" (click)="goTradepage(c)">
+        <h3>{{ c.productname }}</h3>
+        <p>
+          {{ c.category }}
+        </p>
+      </button>
+
+    </ion-list> -->
+
+</ion-content>

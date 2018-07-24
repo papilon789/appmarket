@@ -1,0 +1,44 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>register2.1</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form novalidate  [formGroup]="idform">
+    <ion-list>
+
+      <ion-item>
+        <ion-label>เลขบัตรประชาชน</ion-label>
+        <!-- <ion-searchbar formControlName="id" (ionInput)="getItems($event)"></ion-searchbar> -->
+        <ion-input formControlName="id" type="text" ></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="( idform.get('id').hasError('minlength') || idform.get('id').hasError('maxlength') ||idform.get('id').hasError('pattern') ||idform.get('id').hasError('required') ) && idform.get('id').touched">
+          <div class="error" *ngIf="idform.get('id').hasError('required') && idform.get('id').touched">
+            กรุณาใส่เลขบัตรประชาชน
+          </div>
+          <div class="error" *ngIf="idform.get('id').hasError('minlength') && idform.get('id').touched">
+            Minimum 13 characters
+          </div>
+          <div class="error" *ngIf="idform.get('id').hasError('maxlength') && idform.get('id').touched">
+            Maximum 13 characters
+          </div>
+          <div class="error" *ngIf="idform.get('id').hasError('pattern') && idform.get('id').touched">
+            กรุณาใส่เลขบัตรประชาชน
+          </div>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button (click)="getItems(idform.value)">ยืนยัน</button>
+
+  </form>
+</ion-content>
